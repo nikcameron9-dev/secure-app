@@ -3,6 +3,7 @@ const validator = require('validator');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const helmet = require('helmet');
+const logger = require('./logger');
 
 const app = express();
 
@@ -49,4 +50,5 @@ app.post('/register', async (req, res) => {
 
 app.listen(3000, () => {
   console.log('Server running on port 3000');
+  logger.info('Server started');
 });
