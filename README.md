@@ -88,41 +88,29 @@ The objective of this task was to fix the vulnerabilities identified in Assignme
 
 ### 1. Input Validation Issue
 
-**Before:**
-Application accepted invalid inputs.
-
-**Fix Applied:**
-Used `validator` library to validate user inputs.
+**Before:** Application accepted invalid inputs
+**Fix Applied:** Used `validator` library
 
 ---
 
 ### 2. Weak Password Storage
 
-**Before:**
-Passwords stored in plain text.
-
-**Fix Applied:**
-Implemented password hashing using `bcrypt`.
+**Before:** Passwords stored in plain text
+**Fix Applied:** Implemented hashing using `bcrypt`
 
 ---
 
 ### 3. Missing Authentication
 
-**Before:**
-No access control for protected routes.
-
-**Fix Applied:**
-Implemented JWT-based authentication.
+**Before:** No access control
+**Fix Applied:** Implemented JWT authentication
 
 ---
 
 ### 4. Missing Security Headers
 
-**Before:**
-No protection against common web attacks.
-
-**Fix Applied:**
-Added Helmet middleware to secure HTTP headers.
+**Before:** No protection against attacks
+**Fix Applied:** Added Helmet middleware
 
 ---
 
@@ -131,13 +119,13 @@ Added Helmet middleware to secure HTTP headers.
 * Invalid inputs are rejected
 * Passwords are stored as hashed values
 * Unauthorized access is blocked
-* Security headers are properly applied
+* Security headers are applied
 
 ---
 
 ## ✅ Outcome
 
-All major vulnerabilities were fixed, improving the overall security of the application.
+All vulnerabilities were fixed, improving application security.
 
 ---
 
@@ -163,11 +151,9 @@ This task focuses on implementing security best practices in a Node.js web appli
 
 ## 🔐 Security Features Implemented
 
-### ✅ 1. Input Validation
+### ✅ Input Validation
 
-All user inputs are validated using the `validator` library.
-
-```javascript id="gxtwdk"
+```javascript id="b7o17d"
 const validator = require('validator');
 
 if (!validator.isEmail(email)) {
@@ -177,11 +163,9 @@ if (!validator.isEmail(email)) {
 
 ---
 
-### 🔐 2. Password Hashing
+### 🔐 Password Hashing
 
-Passwords are hashed and salted using `bcrypt`.
-
-```javascript id="cijm0n"
+```javascript id="mx7c8c"
 const bcrypt = require('bcrypt');
 
 const hashedPassword = await bcrypt.hash(password, 10);
@@ -189,11 +173,9 @@ const hashedPassword = await bcrypt.hash(password, 10);
 
 ---
 
-### 🔑 3. JWT Authentication
+### 🔑 JWT Authentication
 
-JWT tokens are generated for secure authentication.
-
-```javascript id="7b5gny"
+```javascript id="fpg86d"
 const jwt = require('jsonwebtoken');
 
 const token = jwt.sign({ email: user.email }, 'secretKey');
@@ -201,66 +183,50 @@ const token = jwt.sign({ email: user.email }, 'secretKey');
 
 ---
 
-### 🛡️ 4. Security Middleware
+### 🛡️ Security Middleware
 
-Helmet is used to secure HTTP headers.
-
-```javascript id="0k36hl"
+```javascript id="9ubq4n"
 const helmet = require('helmet');
 app.use(helmet());
 ```
 
 ---
 
-## 🧪 API Testing using Postman
+## 🧪 API Testing (Postman)
 
-### 📍 Test 1: Invalid Email Signup
+### 📍 Test 1: Invalid Email
 
-**Request:**
 POST /signup
 { "email": "invalidemail", "password": "123456" }
-
-**Response:**
-400 Bad Request - Invalid email
+➡ Response: 400 Bad Request
 
 ---
 
 ### 📍 Test 2: Successful Signup
 
-**Request:**
-POST /signup
-{ "email": "[test@example.com](mailto:test@example.com)", "password": "123456" }
-
-**Response:**
-User registered successfully
+➡ Response: User registered successfully
 
 ---
 
-### 📍 Test 3: Login with Correct Credentials
+### 📍 Test 3: Login Success
 
-**Request:**
-POST /login
-{ "email": "[test@example.com](mailto:test@example.com)", "password": "123456" }
-
-**Response:**
-JWT Token generated
+➡ Response: JWT Token generated
 
 ---
 
-### 📍 Test 4: Login with Incorrect Password
+### 📍 Test 4: Login Failure
 
-**Response:**
-Authentication failed
+➡ Response: Authentication failed
 
 ---
 
 ## ✅ Security Checklist
 
-* ✔ Input validation implemented
-* ✔ Password hashing and salting
+* ✔ Input validation
+* ✔ Password hashing
 * ✔ JWT authentication
 * ✔ Helmet security headers
-* ✔ HTTPS recommended for production
+* ✔ HTTPS recommended
 
 ---
 
@@ -279,11 +245,11 @@ secure-app/
 
 ## 🧠 Final Conclusion
 
-This project demonstrates a complete security workflow:
+This project demonstrates:
 
 1. Identifying vulnerabilities
 2. Fixing security issues
-3. Implementing secure coding practices
+3. Implementing secure practices
 4. Testing application security
 
 The application is now significantly more secure against common web vulnerabilities.
@@ -292,7 +258,7 @@ The application is now significantly more secure against common web vulnerabilit
 
 ## 📎 Notes
 
-* HTTPS should be implemented in production environments
-* Additional improvements can include logging and rate limiting
+* HTTPS should be used in production
+* Additional improvements: logging, rate limiting
 
 ---
